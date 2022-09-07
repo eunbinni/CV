@@ -11,7 +11,11 @@
     style transfer 영역에 새로운 “일러스트레이션” 이미지를 적용한다. (미술작품과 만화와는 다른)
     
     ![스크린샷 2022-08-21 오후 4.11.54.png](https://github.com/eunbinni/CV/blob/main/GANILLA/compare.png)
+
+<img src="https://github.com/eunbinni/CV/blob/main/GANILLA/compare.png" width="450" height = "200>
+
     
+                                                                                            
     CycleGAN/DualGAN에서는 좋지 않은 결과가 나온다.
     
     style과 content의 균형을 잘 맞추는 새로운 네트워크를 제안한다. 
