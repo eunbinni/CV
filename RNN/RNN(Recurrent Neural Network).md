@@ -2,24 +2,25 @@
 
 ## Feedforward 신경망
 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-08-19_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_2.10.46.png" width="400" height="200"/>
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/1.png" width="500" height="250"/>
 - 흐름이 단방향인 신경망
 - 시계열의 데이터를 학습하기 어려움
 
 ## RNN의 구조
 
-![스크린샷 2022-08-22 오전 12.11.10.png](https://github.com/eunbinni/TIL/blob/main/RNN/images/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-08-19_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_2.20.00.png)
+
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/2.png" width="500" height="250"/>
 
 - one to one : 기본 Neural Networks
 - one to many : 이미지에 설명을 다는 캡셔닝, image → sequence word 출력
 - many to one : 감정분석, sequence of words → sentiment
 - many to many : 번역기
 
-![위에서 봤던 구조 압축](https://github.com/eunbinni/TIL/blob/main/RNN/images/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-08-19_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_2.56.37.png)
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/3.png" width="500" height="250"/>
 
 위에서 봤던 구조 압축
 
-![스크린샷 2022-08-19 오후 2.20.00.png](RNN(Recurrent%20Neural%20Network)%20b2bc3781f8754c7e86699248e4c78654/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-08-19_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_2.20.00.png)
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/4.png" width="500" height="250"/>
 
 - **hidden node가 방향을 가진 edge로 연결돼 순환구조를 이루는 인공신경망**
 - input $Xt$
@@ -32,37 +33,41 @@
 
 1. 순환 신경망의 기본 구조로 x값들을 Input으로 넣고, 중간에 hidden state가 있고 output은 y값
 
-![스크린샷 2022-08-19 오후 2.57.34.png](RNN(Recurrent%20Neural%20Network)%20b2bc3781f8754c7e86699248e4c78654/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-08-19_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_2.57.34.png)
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/5.png" width="500" height="250"/>
 
-1. 두가지의 W가중치 고려하기
+
+2. 두가지의 W가중치 고려하기
 - input이 들어올때 $W_{xh}$와 곱해진다.
 - 과거의 값이 들어올때 $W_{hh}$와 곱해진다.
 - 중요한점 : $**W_{xh}$와 $W_{hh}$가중치는 전부 다 같은 값을 쓴다.** (→ 나중에 gradient descent 문제..)
 
-![스크린샷 2022-08-19 오후 2.56.37.png](RNN(Recurrent%20Neural%20Network)%20b2bc3781f8754c7e86699248e4c78654/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-08-19_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_2.56.37.png)
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/6.png" width="500" height="250"/>
 
-1. x값과 곱한 w들을 더해주고, 편향 b까지 더해주기
 
-![스크린샷 2022-08-19 오후 2.57.45.png](RNN(Recurrent%20Neural%20Network)%20b2bc3781f8754c7e86699248e4c78654/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-08-19_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_2.57.45.png)
+3. x값과 곱한 w들을 더해주고, 편향 b까지 더해주기
 
-1. 활성화함수인 tanh 적용
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/7.png" width="500" height="250"/>
+
+4. 활성화함수인 tanh 적용
 - 은닉층 : $h_{t} = tanh(x_{1} W_{xh} + h_{t-1} W_{hh} + b)$
+- 
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/8.png" width="500" height="250"/>
 
-![스크린샷 2022-08-19 오후 3.17.36.png](RNN(Recurrent%20Neural%20Network)%20b2bc3781f8754c7e86699248e4c78654/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-08-19_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_3.17.36.png)
-
-1. 최종 출력 y값
+5. 최종 출력 y값
 - 출력층 : $y_{t} = W_{y} h_{t} + b$
+- 
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/9.png" width="500" height="250"/>
 
-![스크린샷 2022-08-19 오후 3.27.45.png](RNN(Recurrent%20Neural%20Network)%20b2bc3781f8754c7e86699248e4c78654/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-08-19_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_3.27.45.png)
+
 
 ## RNN의 역전파(BackPropagation Through Time)
 
-![스크린샷 2022-08-19 오후 4.28.35.png](RNN(Recurrent%20Neural%20Network)%20b2bc3781f8754c7e86699248e4c78654/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-08-19_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.28.35.png)
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/10.png" width="500" height="250"/>
+
 
 ### 1. 덧셈 노드의 역전파
 
-![스크린샷 2022-08-20 오후 5.17.40.jpg](RNN(Recurrent%20Neural%20Network)%20b2bc3781f8754c7e86699248e4c78654/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-08-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.17.40.jpg)
-
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/11.png" width="500" height="250"/>
 z = x + y 
 
 위의 임의의 계산으로 가는 노드는 x를 기준으로 편미분을 한다. → y가 사라지고 1이 된다.
@@ -73,7 +78,7 @@ z = x + y
 
 ### 2. 곱셈 노드의 역전파
 
-![스크린샷 2022-08-20 오후 5.23.27.jpg](RNN(Recurrent%20Neural%20Network)%20b2bc3781f8754c7e86699248e4c78654/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-08-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.23.27.jpg)
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/12.png" width="500" height="250"/>
 
 z = xy
 
@@ -90,8 +95,7 @@ y로 편미분 : x
 > ex ) Tom is watching TV in his room, Mary came into the room, Mary said hi to ?
 > 
 
-![스크린샷 2022-08-19 오후 4.54.15.png](RNN(Recurrent%20Neural%20Network)%20b2bc3781f8754c7e86699248e4c78654/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-08-19_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.54.15.png)
-
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/13.png" width="500" height="250"/>
 정답 레이블이 Tom일때, “Tom이 방에서 티비를 보고 있음”과 “Mary가 방에 들어옴" 이라는 정보를 기억해야 한다. → RNN 은닉층에 인코딩해서 보관
 
 1. Neural Network는 오류를 최소화 하기 위해서 가중치 업데이트, 과거의 방향으로 기울기를 전달. 
@@ -101,8 +105,7 @@ y로 편미분 : x
 
 ### 1. tanh 활성화함수 적용하는 경우
 
-![스크린샷 2022-08-20 오후 2.26.07.png](RNN(Recurrent%20Neural%20Network)%20b2bc3781f8754c7e86699248e4c78654/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-08-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_2.26.07.png)
-
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/14.png" width="500" height="250"/>
 신경망은 **곱하기 연산**을 기반으로 만들어져 있기 때문에, 미분값이 1보다 조금만 커도 gradient값이 **발산**하게 되고, 1보다 조금만 작아도 gradient값이 소실하게 됨.
 
 > ex) 1.1 ^ 100 = 13,780.6
@@ -119,9 +122,12 @@ Backpropagation시 $\ast W_{h}$ 행렬곱 연산을 하게 됨
 
 ### ✔️ 해결책 : LSTM
 
-![스크린샷 2022-08-20 오후 2.41.19.png](RNN(Recurrent%20Neural%20Network)%20b2bc3781f8754c7e86699248e4c78654/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-08-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_2.41.19.png)
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/15.png" width="500" height="250"/>
+RNN의 반복 모듈이 하나의 layer를 갖고 있는 표준적인 모습이다.
 
-![스크린샷 2022-08-20 오후 2.41.24.png](RNN(Recurrent%20Neural%20Network)%20b2bc3781f8754c7e86699248e4c78654/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-08-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_2.41.24.png)
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/16.png" width="500" height="250"/>
+LSTM의 반복 모듈에는 4개의 상호작용하는 layer가 들어있다.
+
 
 ## LSTM의 특징
 
