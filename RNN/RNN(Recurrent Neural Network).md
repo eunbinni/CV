@@ -9,18 +9,18 @@
 ## RNN의 구조
 
 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/2.png" width="500" height="250"/>
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/17.png" width="500" height="250"/>
 
 - one to one : 기본 Neural Networks
 - one to many : 이미지에 설명을 다는 캡셔닝, image → sequence word 출력
 - many to one : 감정분석, sequence of words → sentiment
 - many to many : 번역기
 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/3.png" width="500" height="250"/>
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/18.png" width="500" height="250"/>
 
-위에서 봤던 구조 압축
+위에서 봤던 구조 압축 ↓
 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/4.png" width="500" height="250"/>
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/2.png" width="500" height="250"/>
 
 - **hidden node가 방향을 가진 edge로 연결돼 순환구조를 이루는 인공신경망**
 - input $Xt$
@@ -29,11 +29,15 @@
 - 시퀀스 길이에 관계없이 인풋과 아웃풋을 받아들일 수 있는 네트워크 구조
 - 과거의 정보($h_{t-1}$)를 기억하는 동시에 최신 데이터로 갱신될 수 있음
 
+
+
 ## RNN의 순전파
 
 1. 순환 신경망의 기본 구조로 x값들을 Input으로 넣고, 중간에 hidden state가 있고 output은 y값
 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/5.png" width="500" height="250"/>
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/4.png" width="500" height="250"/>
+
+
 
 
 2. 두가지의 W가중치 고려하기
@@ -41,33 +45,39 @@
 - 과거의 값이 들어올때 $W_{hh}$와 곱해진다.
 - 중요한점 : $**W_{xh}$와 $W_{hh}$가중치는 전부 다 같은 값을 쓴다.** (→ 나중에 gradient descent 문제..)
 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/6.png" width="500" height="250"/>
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/3.png" width="500" height="250"/>
+
+
 
 
 3. x값과 곱한 w들을 더해주고, 편향 b까지 더해주기
 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/7.png" width="500" height="250"/>
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/5.png" width="500" height="250"/>
+
+
 
 4. 활성화함수인 tanh 적용
 - 은닉층 : $h_{t} = tanh(x_{1} W_{xh} + h_{t-1} W_{hh} + b)$
-- 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/8.png" width="500" height="250"/>
+
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/6.png" width="500" height="250"/>
+
+
 
 5. 최종 출력 y값
 - 출력층 : $y_{t} = W_{y} h_{t} + b$
-- 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/9.png" width="500" height="250"/>
+
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/7.png" width="500" height="250"/>
+
+
 
 
 
 ## RNN의 역전파(BackPropagation Through Time)
 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/10.png" width="500" height="250"/>
-
 
 ### 1. 덧셈 노드의 역전파
 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/11.png" width="500" height="250"/>
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/15.png" width="500" height="250"/>
 z = x + y 
 
 위의 임의의 계산으로 가는 노드는 x를 기준으로 편미분을 한다. → y가 사라지고 1이 된다.
@@ -78,7 +88,7 @@ z = x + y
 
 ### 2. 곱셈 노드의 역전파
 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/12.png" width="500" height="250"/>
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/16.png" width="500" height="250"/>
 
 z = xy
 
@@ -95,7 +105,7 @@ y로 편미분 : x
 > ex ) Tom is watching TV in his room, Mary came into the room, Mary said hi to ?
 > 
 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/13.png" width="500" height="250"/>
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/9.png" width="500" height="250"/>
 정답 레이블이 Tom일때, “Tom이 방에서 티비를 보고 있음”과 “Mary가 방에 들어옴" 이라는 정보를 기억해야 한다. → RNN 은닉층에 인코딩해서 보관
 
 1. Neural Network는 오류를 최소화 하기 위해서 가중치 업데이트, 과거의 방향으로 기울기를 전달. 
@@ -105,7 +115,7 @@ y로 편미분 : x
 
 ### 1. tanh 활성화함수 적용하는 경우
 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/14.png" width="500" height="250"/>
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/10.png" width="500" height="250"/>
 신경망은 **곱하기 연산**을 기반으로 만들어져 있기 때문에, 미분값이 1보다 조금만 커도 gradient값이 **발산**하게 되고, 1보다 조금만 작아도 gradient값이 소실하게 됨.
 
 > ex) 1.1 ^ 100 = 13,780.6
@@ -122,11 +132,15 @@ Backpropagation시 $\ast W_{h}$ 행렬곱 연산을 하게 됨
 
 ### ✔️ 해결책 : LSTM
 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/15.png" width="500" height="250"/>
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/11.png" width="500" height="250"/>
 RNN의 반복 모듈이 하나의 layer를 갖고 있는 표준적인 모습이다.
 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/16.png" width="500" height="250"/>
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/12.png" width="500" height="250"/>
 LSTM의 반복 모듈에는 4개의 상호작용하는 layer가 들어있다.
+
+
+
+
 
 
 ## LSTM의 특징
@@ -135,7 +149,7 @@ LSTM의 반복 모듈에는 4개의 상호작용하는 layer가 들어있다.
 
 4개의 모듈은 3개의 Gate로 표현된다.
 
-![스크린샷 2022-08-20 오후 3.26.51.png](RNN(Recurrent%20Neural%20Network)%20b2bc3781f8754c7e86699248e4c78654/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-08-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_3.26.51.png)
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/14.png" width="500" height="250"/>
 
 - forget gate(f) : 과거 정보를 잊기위한 게이트
 - input gate(i) : 현재 정보를 기억하기 위한 게이트
@@ -143,9 +157,10 @@ LSTM의 반복 모듈에는 4개의 상호작용하는 layer가 들어있다.
 
 모든 gate는 sigmoid 함수를 사용하고 출력 범위는 0~1이기 때문에 그 값이 0이라면 정보를 잊고, 1이라면 정보를 온전히 기억하게 된다.
 
+
 ## 2. Cell State
 
-![스크린샷 2022-08-20 오후 3.23.30.png](RNN(Recurrent%20Neural%20Network)%20b2bc3781f8754c7e86699248e4c78654/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-08-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_3.23.30.png)
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/13.png" width="500" height="250"/>
 
 Cell State : 맨 위를 가로지르는 선
 
