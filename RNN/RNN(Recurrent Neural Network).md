@@ -77,7 +77,7 @@
 
 ### 1. 덧셈 노드의 역전파
 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/15.png" width="500" height="250"/>
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/15.jpg" width="500" height="250"/>
 z = x + y 
 
 위의 임의의 계산으로 가는 노드는 x를 기준으로 편미분을 한다. → y가 사라지고 1이 된다.
@@ -88,7 +88,7 @@ z = x + y
 
 ### 2. 곱셈 노드의 역전파
 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/16.png" width="500" height="250"/>
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/16.jpg" width="500" height="250"/>
 
 z = xy
 
