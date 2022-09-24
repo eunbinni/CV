@@ -9,18 +9,18 @@
 ## RNN의 구조
 
 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/17.png" width="500" height="250"/>
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/17.png" width="600" height="250"/>
 
 - one to one : 기본 Neural Networks
 - one to many : 이미지에 설명을 다는 캡셔닝, image → sequence word 출력
 - many to one : 감정분석, sequence of words → sentiment
 - many to many : 번역기
 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/18.png" width="500" height="250"/>
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/18.png" width="600" height="250"/>
 
 위에서 봤던 구조 압축 ↓
 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/2.png" width="500" height="250"/>
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/2.png" width="600" height="250"/>
 
 - **hidden node가 방향을 가진 edge로 연결돼 순환구조를 이루는 인공신경망**
 - input $Xt$
