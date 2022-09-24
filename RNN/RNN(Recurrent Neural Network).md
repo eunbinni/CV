@@ -88,7 +88,7 @@ z = x + y
 
 ### 2. 곱셈 노드의 역전파
 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/16.jpg" width="500" height="250"/>
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/16.jpg" width="500" height="350"/>
 
 z = xy
 
@@ -105,7 +105,7 @@ y로 편미분 : x
 > ex ) Tom is watching TV in his room, Mary came into the room, Mary said hi to ?
 > 
 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/9.png" width="500" height="250"/>
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/9.png" width="500" height="350"/>
 정답 레이블이 Tom일때, “Tom이 방에서 티비를 보고 있음”과 “Mary가 방에 들어옴" 이라는 정보를 기억해야 한다. → RNN 은닉층에 인코딩해서 보관
 
 1. Neural Network는 오류를 최소화 하기 위해서 가중치 업데이트, 과거의 방향으로 기울기를 전달. 
