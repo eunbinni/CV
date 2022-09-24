@@ -20,7 +20,7 @@
 
 위에서 봤던 구조 압축 ↓
 
-<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/2.png" width="600" height="250"/>
+<img src="https://github.com/eunbinni/TIL/blob/main/RNN/images/2.png" width="500" height="300"/>
 
 - **hidden node가 방향을 가진 edge로 연결돼 순환구조를 이루는 인공신경망**
 - input $Xt$
