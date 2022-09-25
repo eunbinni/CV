@@ -10,7 +10,7 @@
     
     style transfer 영역에 새로운 “일러스트레이션” 이미지를 적용한다. (미술작품과 만화와는 다른)
     
-    <img src="https://github.com/eunbinni/CV/blob/main/GANILLA/compare.png" width="300" height="500"/>
+    <img src="https://github.com/eunbinni/CV/blob/main/GANILLA/compare.png" width="500" height="300"/>
                                                                                             
     CycleGAN/DualGAN에서는 좋지 않은 결과가 나온다.
     
